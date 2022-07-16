@@ -1,0 +1,12 @@
+/* reset */
+@import url('/fonts/inter.ttf');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  box-shadow: none !important;
+}

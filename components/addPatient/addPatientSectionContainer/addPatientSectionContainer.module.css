@@ -1,0 +1,27 @@
+.title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #4A6978;
+
+    background: #E7F3F8;
+
+    border-bottom: 1px solid #D4E4ED;
+    padding: 13px 32px;
+}
+
+.section {
+    border: 1px solid #D4E4ED;
+    border-bottom: none;
+}
+
+.children {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: #FBFDFE;
+    padding: 40px 13% 72px;
+}

@@ -1,0 +1,27 @@
+.header {
+    height: 60px;
+    padding-left: 40px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logout {
+    display: inherit;
+    font-size: 16px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    gap: 8px;
+}
+
+.logout:hover {
+    background-color: #D4E4ED;
+}
+
+.logout:active {
+    background-color: #ffffff;
+}
