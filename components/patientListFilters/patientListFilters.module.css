@@ -1,0 +1,24 @@
+.filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+}
+
+.filter {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: #4A6978;
+    background: #E1EEF4;
+    cursor: pointer;
+}
+
+.active {
+    color: #FFFFFF;
+    background: #059CE6;
+}

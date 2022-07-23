@@ -1,12 +1,15 @@
-import styles from './sidebaritem.module.css';
+import styles from "./sidebaritem.module.css";
 
-export default ({ index, title, isActive }) => {
-    return (
-        <>
-            <div className={`${styles.item} ${isActive ? styles.active : null}`}>
-                <div className={styles.number}>{index}</div>
-                <span>{title}</span>
-            </div> 
-        </>
-    );
-}
+export default ({ index, title, sectHref }) => {
+  return (
+    <>
+      <a
+        className={`nav-link ${index === 0 ? "active" : null} ${styles.a}`}
+        href={`#${sectHref}`}
+      >
+        <div className={styles.number}>{index + 1}</div>
+        <span>{title}</span>
+      </a>
+    </>
+  );
+};

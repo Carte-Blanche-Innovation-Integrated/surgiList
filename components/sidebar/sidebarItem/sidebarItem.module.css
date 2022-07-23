@@ -1,15 +1,12 @@
-.item {
+.a {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 12px 24px;
     gap: 12px;
     border-left: 4px solid transparent;
-}
-
-.active {
-    border-left: 4px solid #35BCFF;
-    background-color: #E8F7FE;
+    color: #618B9E;
+    cursor: pointer;
 }
 
 .number {
@@ -19,9 +16,26 @@
     align-items: center;
     padding: 2px 3px;
 
-    color: #ffffff;
-    background-color: #059CE6;
+    color: #618B9E;
+    border: 1px solid #618B9E;
+    background-color: #ffffff;
     border-radius: 50%;
     width: 28px;
     height: 28px;
+}
+
+.item>a {
+    text-decoration: none;
+    color: #618B9E;
+    padding: 0px;
+}
+
+.item>a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.item>.nav-link:hover {
+    text-decoration: none;
+    color: inherit;
 }

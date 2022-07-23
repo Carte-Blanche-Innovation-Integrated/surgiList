@@ -9,8 +9,9 @@ export default ({ id, fieldName, placeholder, value, handleOnChange }) => {
       <input
         type="text"
         id={id}
-        value={value}
-        onChange={e => handleOnChange(e.target.value)}
+        name={id}
+        value={value ? value : ""}
+        onChange={handleOnChange}
         placeholder={placeholder ? placeholder : "Add text"}
         className={styles.input}
       />

@@ -48,6 +48,10 @@
     width: 100%;
 }
 
+.button:hover {
+    border-color: #059CE6;
+}
+
 .two {
     margin-bottom: 24px;
 }

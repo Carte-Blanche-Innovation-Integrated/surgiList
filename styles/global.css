@@ -10,3 +10,42 @@ body {
 *:focus {
   box-shadow: none !important;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+}
+
+.active {
+  border-left: 4px solid #35BCFF !important;
+  background-color: #E8F7FE;
+  color: #000000 !important;
+}
+
+.active>div {
+  background-color: #059CE6;
+  color: #FFFFFF;
+  border: 1px solid #059CE6;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 60px;
+}

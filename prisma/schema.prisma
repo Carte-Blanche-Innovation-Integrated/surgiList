@@ -1,0 +1,89 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Patient {
+  id        Int     @id @default(autoincrement())
+  firstName String?
+  surName   String?
+  mrn       String?
+  age       Int?
+  sex       String?
+  ward      String?
+
+  specialty  String?
+  consultant String?
+  sho1       String?
+  sho2       String?
+  fy1a       String?
+  fy1b       String?
+  nightSho   String?
+  spr        String?
+
+  doa                        String?
+  pc                         String?
+  pcDetail                   String?
+  diagnosisOnAdmission       String?
+  diagnosisOnAdmissionDetail String?
+  confirmedDiagnosis         String?
+  confirmedDiagnosisDetail   String?
+  history                    String?
+  plan                       String?
+  dateOfSurgery              String?
+  procedure                  String?
+  category                   String?
+  vte                        Boolean?
+  edd                        String?
+  deceased                   Boolean?
+  dateOfDeath                String?
+  teaching                   Boolean?
+  elective                   Boolean?
+  takeList                   Boolean?
+  weekendList                Boolean?
+  discharged                 Boolean?
+
+  investigation       String?
+  investigationDetail String?
+  dateOfBloods1       String?
+  hb1                 Float?
+  wcc1                Float?
+  na1                 Float?
+  k1                  Float?
+  urea1               Float?
+  cr1                 Float?
+  gfr1                Float?
+  crp1                Float?
+  inr1                Float?
+  platelets1          Float?
+  lactates1           Float?
+  bilirubin1          Float?
+  ast1                Float?
+  alt1                Float?
+  alp1                Float?
+  lip1                Float?
+  dateOfBloods2       String?
+  hb2                 Float?
+  wcc2                Float?
+  na2                 Float?
+  k2                  Float?
+  urea2               Float?
+  cr2                 Float?
+  gfr2                Float?
+  crp2                Float?
+  inr2                Float?
+  platelets2          Float?
+  lactates2           Float?
+  bilirubin2          Float?
+  ast2                Float?
+  alt2                Float?
+  alp2                Float?
+  lip2                Float?
+
+  createdAt  String?
+  modifiedAt String?
+}

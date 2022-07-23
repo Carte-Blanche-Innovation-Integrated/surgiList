@@ -1,0 +1,29 @@
+.listArea {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 48px 156px 68px;
+    background: #F3F9FB;
+    overflow-y: scroll;
+    height: calc(100vh - 144px);
+}
+
+.imgArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    gap: 12px;
+}
+
+.notFound {
+    background: #F3F9FB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 0px;
+    height: calc(100vh - 144px);
+}

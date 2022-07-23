@@ -9,8 +9,13 @@ export default ({ id, fieldName, value, handleOnChange }) => {
       <input
         type="date"
         id={id}
-        value={value}
-        onChange={(e) => handleOnChange(e.target.value)}
+        name={id}
+        value={value ? value : ""}
+        onChange={(e) =>
+          handleOnChange({
+            target: { name: id, value: e.target.value},
+          })
+        }
         onFocus={(e) => e.target.showPicker()}
         className={styles.input}
       />

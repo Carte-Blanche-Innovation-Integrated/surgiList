@@ -1,21 +1,29 @@
-import Head from "next/head";
-import Header from "../components/header/header";
-import Sidebar from "../components/sidebar/sidebar";
-import PatientForm from "../components/addPatient/addPatient";
+import PatientList from "../components/patientList/patientList";
+import { PrismaClient } from "@prisma/client";
 
-export default () => {
+export default ({ items }) => {
   return (
     <>
-      <Head>
-        <title>SurgiList</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header />
-      <main className="d-flex">
-        <Sidebar />
-        <PatientForm />
-      </main>
+      <PatientList selectedTab={"take"} patientList={items} />
     </>
   );
 };
+
+export async function getStaticProps() {
+  const prisma = new PrismaClient();
+  let items = await prisma.patient.findMany({
+    where: {
+      takeList: true,
+    },
+  });
+  await prisma.$disconnect();
+  if (items === undefined || items.length == 0) {
+    items = null;
+  }
+
+  return {
+    props: {
+      items,
+    },
+  };
+}

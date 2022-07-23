@@ -1,0 +1,12 @@
+.placement {
+    width: fit-content;
+    margin: 15% auto;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    gap: 24px;
+}

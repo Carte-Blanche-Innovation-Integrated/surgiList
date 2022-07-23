@@ -4,10 +4,9 @@ export default ({
   id,
   fieldName,
   selValue,
-  handleSelOnChange,
-  selOptionsList,
   txtValue,
-  handleTxtOnChange,
+  selOptionsList,
+  handleOnChange,
 }) => {
   return (
     <div>
@@ -20,7 +19,7 @@ export default ({
             id={id}
             name={id}
             value={selValue}
-            onChange={(e) => handleSelOnChange(e.target.value)}
+            onChange={handleOnChange}
             className={styles.select}
           >
             {selOptionsList.map((option, index) => {
@@ -35,16 +34,19 @@ export default ({
         <div className="col-3">
           <button
             className={styles.button}
-            onClick={(e) => handleTxtOnChange("")}
+            onClick={(e) =>
+              handleOnChange({ target: { name: `${id}Detail`, value: "" } })
+            }
           >
             Clear Entry
           </button>
         </div>
       </div>
       <textarea
-        id={`${id}-textarea`}
-        value={txtValue}
-        onChange={(e) => handleTxtOnChange(e.target.value)}
+        id={`${id}Detail`}
+        name={`${id}Detail`}
+        value={txtValue ? txtValue : ""}
+        onChange={handleOnChange}
         placeholder={
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
         }

@@ -8,9 +8,15 @@ export default ({ id, fieldName, value, handleOnChange }) => {
           className={styles.input}
           type="checkbox"
           id={id}
-          value={value}
-          onChange={(e) => handleOnChange(e.target.checked)}
-          defaultChecked={false}
+          // value={value}
+          checked={value}
+          name={id}
+          onChange={(e) =>
+            handleOnChange({
+              target: { name: id, value: e.target.checked },
+            })
+          }
+          // defaultChecked={false}
         />
         <span className={styles.slider}></span>
       </label>

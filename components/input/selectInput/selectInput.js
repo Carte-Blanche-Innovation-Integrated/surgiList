@@ -7,8 +7,8 @@ export default ({ id, fieldName, optionsList, value, handleOnChange }) => {
       <select
         id={id}
         name={id}
-        value={value}
-        onChange={(e) => handleOnChange(e.target.value)}
+        value={value ? value : optionsList[0]}
+        onChange={handleOnChange}
         className={styles.select}
       >
         {optionsList.map((option, index) => {

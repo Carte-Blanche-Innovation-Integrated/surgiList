@@ -7,7 +7,7 @@
 }
 
 .label {
-    
+
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -36,6 +36,8 @@
     -moz-appearance: none;
     appearance: none;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    cursor: pointer;
 }
 
 .input::-webkit-calendar-picker-indicator {
