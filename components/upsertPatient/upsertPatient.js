@@ -5,7 +5,6 @@ import Sidebar from "../sidebar/sidebar";
 import Modal from "../successModal/successModal";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
-import useScrollSpy from "react-use-scrollspy";
 
 import ShortTextInput from "../input/shortTextInput/shortTextInput";
 import NumberInput from "../input/numberInput/numberInput";
