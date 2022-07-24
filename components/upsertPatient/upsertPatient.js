@@ -5,6 +5,7 @@ import Sidebar from "../sidebar/sidebar";
 import Modal from "../successModal/successModal";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
+import useScrollSpy from "react-use-scrollspy";
 
 import ShortTextInput from "../input/shortTextInput/shortTextInput";
 import NumberInput from "../input/numberInput/numberInput";
@@ -60,8 +61,6 @@ export default ({ op, handleSubmit, initialData, q }) => {
     bsModal.hide();
     router.push("/");
   };
-
-  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   const initialState = {
     firstName: "",
@@ -156,7 +155,6 @@ export default ({ op, handleSubmit, initialData, q }) => {
     : useState(initialData);
 
   const handleCancel = (e) => {
-    setState(initialState);
     router.push("/");
   };
 
@@ -743,7 +741,6 @@ export default ({ op, handleSubmit, initialData, q }) => {
   const getConf = ({ addOp }) => {
     const dict = {};
 
-    const refIndex = 0;
     conf
       .filter((el) => (addOp ? !!el.add : !!el.edit))
       .forEach((el) => {
@@ -785,26 +782,16 @@ export default ({ op, handleSubmit, initialData, q }) => {
     }
   };
 
-  // useEffect(() => {
-  //   var scrollSpyContentEl = document.querySelector('[data-bs-spy="scroll"]');
-  //   console.log(scrollSpyContentEl);
-  //   const instance = bootstrap.ScrollSpy.getInstance(scrollSpyContentEl);
-  //   console.log(instance);
-  //   instance.refresh();
-  // }, []);
+  const mainRef = useRef(null);
 
   return (
     <>
       <Header />
       <main className="d-flex">
-        <Sidebar sectionList={getSections({ addOp })} />
-        <div
-          data-bs-spy="scroll"
-          data-bs-target="#sidebar"
-          className={styles.upsertPatient}
-          tabIndex="0"
-          data-bs-offset="132"
-        >
+        <Sidebar
+          sectionList={getSections({ addOp })}
+        />
+        <div className={styles.upsertPatient} ref={mainRef}>
           <div className={styles.upsertPatientTitle}>{title}</div>
           <PatientForm
             formConf={
@@ -818,6 +805,7 @@ export default ({ op, handleSubmit, initialData, q }) => {
             handleChange={handleChange}
             successBtnTxt={btnTxt}
             successBtnIcon={btnIcon}
+            ref={mainRef}
           />
         </div>
       </main>

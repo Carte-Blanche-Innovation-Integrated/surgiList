@@ -1,7 +1,11 @@
 import styles from "./patientListFilters.module.css";
 import { SPECIALTIES } from "../data";
+import { useEffect } from "react";
 
 export default ({ activeFilter, setFilter }) => {
+  useEffect(() => {
+    setFilter(SPECIALTIES[0]);
+  }, []);
   return (
     <>
       <div className={styles.filters}>

@@ -8,14 +8,22 @@ import Image from "next/image";
 import notFoundImg from "../../public/images/not-found.svg";
 import plusImg from "../../public/images/plus.svg";
 import IconButton from "../iconButton/iconButton";
+import printImg from "../../public/images/printer.svg";
+import { useReactToPrint } from "react-to-print";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 
 export default ({ patientList, selectedTab }) => {
+  const printRef = useRef(null);
   const router = useRouter();
+
+  const handlePrint = useReactToPrint({
+    content: () => printRef.current,
+  });
+
   const [filter, setFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [editQuery, setEditQuery] = useState("");
 
   const handleAdd = () => {
     let q = {};
@@ -33,7 +41,7 @@ export default ({ patientList, selectedTab }) => {
   };
 
   const handleEdit = () => {
-    router.push(`/edit/${selectedTab}`);
+    router.push(`/update/${editQuery}?attr=mrn`);
   };
 
   return (
@@ -43,15 +51,41 @@ export default ({ patientList, selectedTab }) => {
         selectedTab={selectedTab}
         handleAdd={handleAdd}
         handleEdit={handleEdit}
+        setSearchValue={setEditQuery}
+        searchValue={editQuery}
       />
       {patientList ? (
         <main className={styles.listArea}>
-          {selectedTab === "speciality" ? (
-            <PatientListFilters activeFilter={filter} setFilter={setFilter} />
-          ) : null}
-          {patientList.map((patient, index) => {
-            return <PatientListItem key={index} data={patient} />;
-          })}
+          <div
+            className={`${styles.filterRow} ${
+              selectedTab !== "speciality" ? "justify-content-end" : null
+            }`}
+          >
+            {selectedTab === "speciality" ? (
+              <PatientListFilters activeFilter={filter} setFilter={setFilter} />
+            ) : null}
+
+            <IconButton
+              iconSrc={printImg}
+              btnText={"Print list"}
+              size={"l"}
+              variant={"hollow"}
+              handleClick={handlePrint}
+            />
+          </div>
+
+          <div ref={printRef}>
+            {patientList
+              .filter((patient) => {
+                if (selectedTab === "speciality") {
+                  return patient.specialty === filter;
+                }
+                return true;
+              })
+              .map((patient, index) => {
+                return <PatientListItem key={index} data={patient} />;
+              })}
+          </div>
         </main>
       ) : (
         <div className={styles.notFound}>

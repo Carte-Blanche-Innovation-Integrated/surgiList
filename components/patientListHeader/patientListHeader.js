@@ -5,7 +5,13 @@ import editImg from "../../public/images/edit.svg";
 import SearchButton from "../searchButton/searchButton";
 import Link from "next/link";
 
-export default ({ selectedTab, handleAdd, handleEdit }) => {
+export default ({
+  selectedTab,
+  handleAdd,
+  searchValue,
+  setSearchValue,
+  handleEdit,
+}) => {
   const links = [
     {
       id: "take",
@@ -43,14 +49,15 @@ export default ({ selectedTab, handleAdd, handleEdit }) => {
         })}
       </div>
       <div className={styles.buttons}>
-        <SearchButton />
-        <IconButton
-          iconSrc={editImg}
-          btnText={"Edit Patient"}
-          handleClick={handleEdit}
-          size="s"
-          variant="outlined"
+        <SearchButton
+          btnIcon={editImg}
+          btnTxt={"Edit Patient"}
+          handleSearch={handleEdit}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          searchPlaceholder={"Enter patient’s MRN"}
         />
+
         <IconButton
           iconSrc={plusImg}
           btnText={"Add Patient"}

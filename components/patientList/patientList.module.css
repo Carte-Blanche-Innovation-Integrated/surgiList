@@ -8,6 +8,14 @@
     height: calc(100vh - 144px);
 }
 
+.filterRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    justify-content: space-between;
+}
+
 .imgArea {
     display: flex;
     flex-direction: column;

@@ -14,6 +14,14 @@ export async function getStaticProps() {
   let items = await prisma.patient.findMany({
     where: {
       takeList: true,
+      OR: [
+        {
+          discharged: false,
+        },
+        {
+          discharged: null,
+        }
+      ]
     },
   });
   await prisma.$disconnect();

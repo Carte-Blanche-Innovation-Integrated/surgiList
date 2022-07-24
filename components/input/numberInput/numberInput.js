@@ -10,9 +10,11 @@ export default ({ id, fieldName, placeholder, value, handleOnChange }) => {
         type="number"
         id={id}
         name={id}
-        value={value}
+        value={value || ""}
         onChange={(e) =>
-          handleOnChange({ target: { name: id, value: Number(e.target.value) } })
+          handleOnChange({
+            target: { name: id, value: Number(e.target.value) },
+          })
         }
         placeholder={placeholder ? placeholder : 0}
         className={styles.input}
